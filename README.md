@@ -1,5 +1,16 @@
 TODO:
 - site link https://vitalyte.github.io/github-pages-with-jekyll/
+- [docker run documentation](https://docs.docker.com/engine/reference/run/#clean-up---rm)
+
+```
+docker create --name githubpages -v "$PWD/github-pages-with-jekyll":/site -w /site -p 4567:4567 \
+    -e LC_ALL=C.UTF-8 ruby /bin/bash -c 'bundle install && bundle exec middleman'
+
+```
+
+```
+docker run --rm -it -p 4000:4000 --entrypoint /bin/bash --mount type=bind,source=$PWD,target=/srv/jekyll jekyll/builder:3.8
+```
 
 # Your GitHub Learning Lab Repository for GitHub Pages
 
